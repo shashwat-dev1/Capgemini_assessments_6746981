@@ -6,3 +6,5 @@ test('Question 2', async ({page}) => {
     console.log(viratRank);
     await page.screenshot({path: `tests/date_06_03_26/screenshot/question_2_${Date.now()}.png`});
 })
+
+// i used virat kohli as warner was not in ranking and i used odi can be done in other formats.
