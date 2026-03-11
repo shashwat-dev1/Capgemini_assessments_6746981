@@ -1,13 +1,25 @@
-import { test, expect } from '@playwright/test';
+import {test} from '@playwright/test'
 
-test('compose_and_send_mail', async ({ page }) => {
-  test.setTimeout(60000);
-  await page.goto('https://mail.google.com/');
-  await page.getByRole('button', { name: 'Compose' }).click();
-  await page.getByRole('textbox', { name: 'To recipients' }).fill('example@gmail.com');
-  await page.getByPlaceholder('Subject').fill('Playwright Test Mail');
-  await page.locator('//div[@aria-label="Message Body"]').fill('Hello, this is a simple automated mail sent using Playwright.');
-  await page.getByRole('button').click();
-  await expect(page.locator('text=Message sent')).toBeVisible();
-  await page.screenshot({ path: `tests/date_10_03_26/screenshot/question_1_${Date.now()}.png`, fullPage: true });
-});
+test("test2", async({page,browserName})=>{
+    await page.goto('https://mail.google.com/');
+    await page.locator('//div[@jscontroller="eIu7Db"]').click();
+    await page.keyboard.type('shashwatjain739@gmail.com');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.type('Shashwat Sends his regards.');
+    await page.keyboard.press('Tab');
+    await page.keyboard.insertText('Hope you are well brother.');
+    await page.keyboard.press('Enter');
+    await page.keyboard.insertText('Thanking you,');
+    await page.keyboard.press('Enter');
+    await page.keyboard.insertText('yours truly,');
+    await page.keyboard.press('Enter');
+    await page.keyboard.insertText('Shashwat Jain');
+    await page.keyboard.press('Enter');
+
+    await page.keyboard.press('Tab');
+    await page.screenshot({path: `tests/date_10_03_26/screenshot/question_1_1${Date.now()}.png`});
+    await page.keyboard.press('Enter');
+
+    await page.screenshot({path: `tests/date_10_03_26/screenshot/question_1_2${Date.now()}.png`});
+})
